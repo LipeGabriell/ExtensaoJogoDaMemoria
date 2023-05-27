@@ -6,13 +6,15 @@ public class GameplayController : MonoBehaviour
 {
     [Header("Cartas")]
     public Sprite cardBack;
-    public Sprite[] cardImages;             // Imagens das cartas
+    public CardData[] cardData;             // Imagens das cartas
     [Space]
     [Header("Tamanho")]
     public int gridSizeX;                   // Quantidade de colunas do grid
     public int gridSizeY;                   // Quantidade de linhas do grid
 
     public GameObject cardPrefab;           // Prefab da carta
+    public GameObject Toast;
+    public GameObject Win;
 
     private List<int> availableIDs;         // Lista de IDs disponíveis para as cartas
     private List<CardController> flippedCards;        // Lista das cartas viradas
@@ -99,7 +101,8 @@ public class GameplayController : MonoBehaviour
             if (matchedCards.Count == gridSizeX * gridSizeY)
             {
                 // Todas as cartas foram combinadas, você pode adicionar a lógica de fim do jogo aqui
-                Debug.Log("Você ganhou!");
+                Instantiate(Win);
+                Debug.Log("Jogo trava, precisa adicionar vitória");
             }
         }
         else

@@ -25,7 +25,7 @@ public class CardController : MonoBehaviour
         isFlipped = !isFlipped;
 
         if (isFlipped == false) spriteRenderer.sprite = controller.cardBack;
-        else spriteRenderer.sprite = controller.cardImages[id];
+        else spriteRenderer.sprite = controller.cardData[id].cardSprite;
     }
 
     // Método para marcar a carta como combinada
@@ -33,6 +33,8 @@ public class CardController : MonoBehaviour
     {
         isMatched = true;
         Debug.Log("Formou par!");
+        GameObject toast = Instantiate(controller.Toast);
+        toast.GetComponent<ToastScript>().setText(controller.cardData[id].cardDescription);
 
         Destroy(this.gameObject, 1f);
     }

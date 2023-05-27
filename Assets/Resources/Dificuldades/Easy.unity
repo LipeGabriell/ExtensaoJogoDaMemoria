@@ -199,18 +199,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardBack: {fileID: 21300000, guid: 850a3a0f8e5836b4ea72be44ef9ef3be, type: 3}
-  cardImages:
-  - {fileID: 21300000, guid: 1311fcdf0963c8640be2c63846cbc84e, type: 3}
-  - {fileID: 21300000, guid: e2cbe222ca80d6741906c7b001642387, type: 3}
-  - {fileID: 21300000, guid: 0bdd26c27e8ccff4c841103c33170830, type: 3}
-  - {fileID: 21300000, guid: e449e784d2af3864d9a3e1b494746475, type: 3}
-  - {fileID: 21300000, guid: fa810bee86844ea4b8e9331d0ca04572, type: 3}
-  - {fileID: 21300000, guid: 978025d6f4b2732499a425a5c2cbf9f8, type: 3}
-  - {fileID: 21300000, guid: f88d49f73fab34f469e0f694305c8919, type: 3}
-  - {fileID: 21300000, guid: 9b207a02ee11d644e9c493c26c54ed0d, type: 3}
+  cardData:
+  - {fileID: 11400000, guid: e6b393083660dd44eb75f4bc75bde0cb, type: 2}
+  - {fileID: 11400000, guid: d4cb9cbaf68f10242833ab644aa4c798, type: 2}
+  - {fileID: 11400000, guid: 5d7383d4278b7354c90a867624b24c8c, type: 2}
+  - {fileID: 11400000, guid: a0bbf6b7d8cf51946972ad0d5dd9aa91, type: 2}
+  - {fileID: 11400000, guid: 09e330e22e18d4e4db2be632ebc89764, type: 2}
+  - {fileID: 11400000, guid: 5af1097184f3fee48a18815d168b0d8f, type: 2}
+  - {fileID: 11400000, guid: 14548827ef681934eb235f7d41b54487, type: 2}
+  - {fileID: 11400000, guid: 631ffbec0c61e3346b0e451700e5d745, type: 2}
   gridSizeX: 4
   gridSizeY: 2
   cardPrefab: {fileID: 7138602300256906913, guid: 5ff30fd1c7e805745b11edc8e7916851, type: 3}
+  Toast: {fileID: 3952437744143784672, guid: 37c30d411d7dbcd4cb94e63cd7dd820c, type: 3}
+  Win: {fileID: 3952437744143784672, guid: a0e544273a2d2314fbfb48086b1110b6, type: 3}
 --- !u!1 &1593479537
 GameObject:
   m_ObjectHideFlags: 0
