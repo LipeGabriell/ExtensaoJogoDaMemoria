@@ -39,22 +39,29 @@ public class GameplayController : MonoBehaviour
 
         Shuffle(availableIDs); // Embaralhar a lista de IDs
 
-        for (int x = 0; x < gridSizeX; x++)
+        List<Sprite> availableSprites = new List<Sprite>(cardImages); // Lista de imagens disponíveis
+        Shuffle(availableSprites); // Embaralhar a lista de imagens
+
+        int cardCount = gridSizeX * gridSizeY;
+
+        for (int i = 0; i < cardCount; i++)
         {
-            for (int y = 0; y < gridSizeY; y++)
-            {
-                int index = y * gridSizeX + x; // Índice baseado na posição do grid
+            // Instanciar uma nova carta
+            GameObject cardObj = Instantiate(cardPrefab, new Vector3(i % gridSizeX, i / gridSizeX, 0), Quaternion.identity);
+            CardController card = cardObj.GetComponent<CardController>();
 
-                // Instanciar uma nova carta
-                GameObject cardObj = Instantiate(cardPrefab, new Vector3(x, y, 0), Quaternion.identity);
-                CardController card = cardObj.GetComponent<CardController>();
+            // Definir o ID da carta
+            card.id = availableIDs[i];
 
-                // Definir a imagem e o ID da carta
-                card.id = availableIDs[index];
-                card.GetComponent<SpriteRenderer>().sprite = cardBack;
-            }
+            // Escolher uma imagem aleatória
+            int randomIndex = Random.Range(0, availableSprites.Count);
+            card.GetComponent<SpriteRenderer>().sprite = availableSprites[randomIndex];
+            availableSprites.RemoveAt(randomIndex); // Remover a imagem escolhida da lista
+
+            card.GetComponent<SpriteRenderer>().sprite = cardBack;
         }
     }
+
 
     // Método para embaralhar uma lista
     private void Shuffle<T>(List<T> list)
@@ -68,6 +75,7 @@ public class GameplayController : MonoBehaviour
             list[k] = list[n];
             list[n] = value;
         }
+
     }
 
     // Método para virar uma carta

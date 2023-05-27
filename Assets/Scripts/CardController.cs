@@ -33,6 +33,10 @@ public class CardController : MonoBehaviour
     {
         isMatched = true;
         Debug.Log("Formou par!");
-        Destroy(this, 2f);
+
+        Destroy(this.gameObject, 1f);
     }
+
+
+
 }
