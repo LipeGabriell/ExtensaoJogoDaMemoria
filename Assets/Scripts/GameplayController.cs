@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,7 +14,7 @@ public class GameplayController : MonoBehaviour
 
     public GameObject cardPrefab;           // Prefab da carta
 
-    private List<int> availableIDs;         // Lista de IDs disponíveis para as cartas
+    private List<int> availableIDs;         // Lista de IDs disponÃ­veis para as cartas
     private List<CardController> flippedCards;        // Lista das cartas viradas
     private List<CardController> matchedCards;        // Lista das cartas combinadas
 
@@ -25,7 +25,7 @@ public class GameplayController : MonoBehaviour
         InitializeCards();
     }
 
-    // Método para inicializar as cartas
+    // MÃ©todo para inicializar as cartas
     private void InitializeCards()
     {
         int totalPairs = (gridSizeX * gridSizeY) / 2;
@@ -39,31 +39,24 @@ public class GameplayController : MonoBehaviour
 
         Shuffle(availableIDs); // Embaralhar a lista de IDs
 
-        List<Sprite> availableSprites = new List<Sprite>(cardImages); // Lista de imagens disponíveis
-        Shuffle(availableSprites); // Embaralhar a lista de imagens
-
-        int cardCount = gridSizeX * gridSizeY;
-
-        for (int i = 0; i < cardCount; i++)
+        for (int x = 0; x < gridSizeX; x++)
         {
-            // Instanciar uma nova carta
-            GameObject cardObj = Instantiate(cardPrefab, new Vector3(i % gridSizeX, i / gridSizeX, 0), Quaternion.identity);
-            CardController card = cardObj.GetComponent<CardController>();
+            for (int y = 0; y < gridSizeY; y++)
+            {
+                int index = y * gridSizeX + x; // Ãndice baseado na posiÃ§Ã£o do grid
 
-            // Definir o ID da carta
-            card.id = availableIDs[i];
+                // Instanciar uma nova carta
+                GameObject cardObj = Instantiate(cardPrefab, new Vector3(x, y, 0), Quaternion.identity);
+                CardController card = cardObj.GetComponent<CardController>();
 
-            // Escolher uma imagem aleatória
-            int randomIndex = Random.Range(0, availableSprites.Count);
-            card.GetComponent<SpriteRenderer>().sprite = availableSprites[randomIndex];
-            availableSprites.RemoveAt(randomIndex); // Remover a imagem escolhida da lista
-
-            card.GetComponent<SpriteRenderer>().sprite = cardBack;
+                // Definir a imagem e o ID da carta
+                card.id = availableIDs[index];
+                card.GetComponent<SpriteRenderer>().sprite = cardBack;
+            }
         }
     }
 
-
-    // Método para embaralhar uma lista
+    // MÃ©todo para embaralhar uma lista
     private void Shuffle<T>(List<T> list)
     {
         int n = list.Count;
@@ -75,10 +68,9 @@ public class GameplayController : MonoBehaviour
             list[k] = list[n];
             list[n] = value;
         }
-
     }
 
-    // Método para virar uma carta
+    // MÃ©todo para virar uma carta
     public void FlipCard(CardController card)
     {
         if (!card.isFlipped && flippedCards.Count < 2)
@@ -98,7 +90,7 @@ public class GameplayController : MonoBehaviour
 
         if (flippedCards[0].id == flippedCards[1].id)
         {
-            // As cartas são um par
+            // As cartas sÃ£o um par
             flippedCards[0].Match();
             flippedCards[1].Match();
             matchedCards.Add(flippedCards[0]);
@@ -106,13 +98,13 @@ public class GameplayController : MonoBehaviour
 
             if (matchedCards.Count == gridSizeX * gridSizeY)
             {
-                // Todas as cartas foram combinadas, você pode adicionar a lógica de fim do jogo aqui
-                Debug.Log("Você ganhou!");
+                // Todas as cartas foram combinadas, vocÃª pode adicionar a lÃ³gica de fim do jogo aqui
+                Debug.Log("VocÃª ganhou!");
             }
         }
         else
         {
-            // As cartas não são um par, então vire-as novamente
+            // As cartas nÃ£o sÃ£o um par, entÃ£o vire-as novamente
             flippedCards[0].Flip();
             flippedCards[1].Flip();
         }
