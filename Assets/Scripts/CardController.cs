@@ -1,34 +1,52 @@
 using UnityEngine;
+using System.Collections;
 
 public class CardController : MonoBehaviour
 {
-    public int id;                  // ID da carta
-    public bool isFlipped = false;  // Indica se a carta est· virada
-    public bool isMatched = false;  // Indica se a carta foi combinada com outra
+    public int id; // ID da carta
+    public bool isFlipped = false; // Indica se a carta est√° virada
+    public bool isMatched = false; // Indica se a carta foi combinada com outra
     private SpriteRenderer spriteRenderer;
     GameplayController controller;
 
     private void Start()
     {
         controller = FindFirstObjectByType<GameplayController>();
-        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
     }
 
     private void OnMouseDown()
     {
-        controller.FlipCard(this);
+        if(!FindFirstObjectByType<ToastScript>()) controller.FlipCard(this);
     }
 
-    // MÈtodo para virar a carta
-    public void Flip()
+    // M√©todo para virar a carta
+    public IEnumerator Flip()
     {
         isFlipped = !isFlipped;
 
-        if (isFlipped == false) spriteRenderer.sprite = controller.cardBack;
-        else spriteRenderer.sprite = controller.cardData[id].cardSprite;
+        if (isFlipped == false)
+        {
+            for (var i = 0f; i <= 180; i += 10f)
+            {
+                gameObject.transform.rotation = Quaternion.Euler(0, i, 0);
+                if (i == 90) spriteRenderer.sprite = null;
+                yield return new WaitForSeconds(0.01f);
+            }
+        }
+        else
+        {
+            for (var i = 180f; i >= 0f; i -= 10f)
+            {
+                gameObject.transform.rotation = Quaternion.Euler(0, i, 0);
+                if (i == 90) spriteRenderer.sprite = controller.cardData[id].cardSprite;
+                yield return new WaitForSeconds(0.01f);
+
+            }
+        }
     }
 
-    // MÈtodo para marcar a carta como combinada
+    // M√©todo para marcar a carta como combinada
     public void Match()
     {
         isMatched = true;
@@ -38,7 +56,4 @@ public class CardController : MonoBehaviour
 
         Destroy(this.gameObject, 1f);
     }
-
-
-
 }

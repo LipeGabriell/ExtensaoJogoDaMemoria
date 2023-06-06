@@ -4,21 +4,18 @@ using UnityEngine;
 
 public class GameplayController : MonoBehaviour
 {
-    [Header("Cartas")]
-    public Sprite cardBack;
-    public CardData[] cardData;             // Imagens das cartas
-    [Space]
-    [Header("Tamanho")]
-    public int gridSizeX;                   // Quantidade de colunas do grid
-    public int gridSizeY;                   // Quantidade de linhas do grid
+    [Header("Cartas")] public Sprite cardBack;
+    public CardData[] cardData; // Imagens das cartas
+    [Space] [Header("Tamanho")] public int gridSizeX; // Quantidade de colunas do grid
+    public int gridSizeY; // Quantidade de linhas do grid
 
-    public GameObject cardPrefab;           // Prefab da carta
+    public GameObject cardPrefab; // Prefab da carta
     public GameObject Toast;
     public GameObject Win;
 
-    private List<int> availableIDs;         // Lista de IDs disponíveis para as cartas
-    private List<CardController> flippedCards;        // Lista das cartas viradas
-    private List<CardController> matchedCards;        // Lista das cartas combinadas
+    private List<int> availableIDs; // Lista de IDs disponíveis para as cartas
+    private List<CardController> flippedCards; // Lista das cartas viradas
+    private List<CardController> matchedCards; // Lista das cartas combinadas
 
     private void Start()
     {
@@ -53,7 +50,6 @@ public class GameplayController : MonoBehaviour
 
                 // Definir a imagem e o ID da carta
                 card.id = availableIDs[index];
-                card.GetComponent<SpriteRenderer>().sprite = cardBack;
             }
         }
     }
@@ -77,7 +73,7 @@ public class GameplayController : MonoBehaviour
     {
         if (!card.isFlipped && flippedCards.Count < 2)
         {
-            card.Flip();
+            card.StartCoroutine(card.Flip());
             flippedCards.Add(card);
 
             if (flippedCards.Count == 2)
@@ -86,6 +82,7 @@ public class GameplayController : MonoBehaviour
             }
         }
     }
+
     private IEnumerator CheckForMatch()
     {
         yield return new WaitForSeconds(1f);
@@ -100,18 +97,24 @@ public class GameplayController : MonoBehaviour
 
             if (matchedCards.Count == gridSizeX * gridSizeY)
             {
-                // Todas as cartas foram combinadas, você pode adicionar a lógica de fim do jogo aqui
-                Instantiate(Win);
-                Debug.Log("Jogo trava, precisa adicionar vitória");
+                StartCoroutine(WinCoroutine());
             }
         }
         else
         {
             // As cartas não são um par, então vire-as novamente
-            flippedCards[0].Flip();
-            flippedCards[1].Flip();
+            flippedCards[0].StartCoroutine((flippedCards[0].Flip()));
+            flippedCards[1].StartCoroutine((flippedCards[1].Flip()));
         }
 
         flippedCards.Clear();
+    }
+
+//Chama a tela de vitória
+    private IEnumerator WinCoroutine()
+    {
+        yield return new WaitForSeconds(.5f);
+        yield return new WaitUntil(() => !FindFirstObjectByType<ToastScript>());
+        Instantiate(Win);
     }
 }

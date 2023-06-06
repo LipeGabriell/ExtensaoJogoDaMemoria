@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 public class MenuController : MonoBehaviour
 {
 
-    //cena 0 È a tela do menu
-    //cena 1 È o f·cil
-    //cena 2 mÈdio
+    //cena 0 √© a tela do menu
+    //cena 1 √© o f√°cil
+    //cena 2 m√©dio
     //cena 3 dificil
 
     [SerializeField] GameObject jogarLevels;
