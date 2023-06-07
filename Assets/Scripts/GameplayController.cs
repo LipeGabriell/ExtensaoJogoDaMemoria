@@ -114,7 +114,7 @@ public class GameplayController : MonoBehaviour
     private IEnumerator WinCoroutine()
     {
         yield return new WaitForSeconds(.5f);
-        yield return new WaitUntil(() => !FindFirstObjectByType<ToastScript>());
+        yield return new WaitUntil(() => !FindFirstObjectByType<ToastScript>() && !FindFirstObjectByType<CardController>());
         Instantiate(Win);
     }
 }
