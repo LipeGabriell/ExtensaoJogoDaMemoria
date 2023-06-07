@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Produtores
   m_EditorClassIdentifier: 
   cardSprite: {fileID: 21300000, guid: 978025d6f4b2732499a425a5c2cbf9f8, type: 3}
-  cardDescription: "Na natureza, as plantas, por fotoss\xEDntese, os alimentos de
-    que necessitam e os degradam por meio da respira\xE7\xE3o para a execu\xE7\xE3o
-    das fun\xE7\xF5es celulares, estes organismos s\xE3o denominados aut\xF3trofos
-    (produtores). Eles s\xE3o importantes, pois representam o primeiro n\xEDvel tr\xF3fico
-    da cadeia, servindo, portanto, como alimento para os consumidores prim\xE1rios.
-    Um exemplo de produtor \xE9 o capim."
+  cardDescription: "As plantas na natureza, atrav\xE9s do processo de fotoss\xEDntese,
+    produzem os alimentos de que necessitam e os degradam por meio da respira\xE7\xE3o
+    para a execu\xE7\xE3o das fun\xE7\xF5es celulares. Estes organismos s\xE3o denominados
+    aut\xF3trofos, ou produtores. Eles s\xE3o extremamente importantes, pois representam
+    o primeiro n\xEDvel tr\xF3fico da cadeia alimentar, servindo, portanto, como
+    alimento para os consumidores prim\xE1rios. O capim \xE9 um exemplo de produtor."

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Onivoros urso
   m_EditorClassIdentifier: 
   cardSprite: {fileID: 21300000, guid: 1311fcdf0963c8640be2c63846cbc84e, type: 3}
-  cardDescription: "Os ursos s\xE3o animais on\xEDvoros, ou seja, se alimentam de
-    vegetais e de carne. Sua dieta pode variar de acordo com a esp\xE9cie e o ambiente
-    em que vivem. \xC9 um predador no topo da cadeia alimentar, isso significa que
-    ca\xE7a animais para se alimentar, mas n\xE3o \xE9 ca\xE7ado por nenhum outro.
-    Sua dieta inclui mel, frutas, larvas, mariposas, peixes, pequenos roedores e
-    carni\xE7a de grandes animais."
+  cardDescription: "Os ursos s\xE3o animais on\xEDvoros, o que significa que se alimentam
+    tanto de vegetais quanto de carne. Sua dieta pode variar de acordo com a esp\xE9cie
+    e o ambiente em que vivem. Como predadores no topo da cadeia alimentar, eles
+    ca\xE7am outros animais para se alimentar, mas, geralmente, n\xE3o s\xE3o ca\xE7ados
+    por nenhum outro animal. A dieta dos ursos pode incluir mel, frutas, larvas,
+    mariposas, peixes, pequenos roedores e at\xE9 carca\xE7as de grandes animais."

@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abae8db499703d54b81a26b86126ff6d, type: 3}
   m_Name: herbivoros zebra
   m_EditorClassIdentifier: 
-  cardSprite: {fileID: 21300000, guid: 0bdd26c27e8ccff4c841103c33170830, type: 3}
-  cardDescription: "A Zebra \xE9 um animal quadr\xFApede, herb\xEDvoro. Suas listras
-    funcionam como impress\xE3o digital. \xC9 um animal importante para manter o
-    reino dos Carn\xEDvoros ativo, por serem prezas f\xE1ceis, s\xE3o fontes de alimento
-    para estes animais. Seus predadores s\xE3o Le\xF5es, Hienas e Crocodilos. Este
-    quadr\xFApede \xE9 um consumidor prim\xE1rio, ou seja, se alimenta de vegetais."
+  cardSprite: {fileID: 21300000, guid: bf05b209d4658ed45a9693ea0e22b4bc, type: 3}
+  cardDescription: "A zebra \xE9 um animal quadr\xFApede e herb\xEDvoro, cujas listras
+    s\xE3o t\xE3o \xFAnicas quanto uma impress\xE3o digital. Ela \xE9 uma esp\xE9cie
+    importante para a manuten\xE7\xE3o da atividade dos carn\xEDvoros, j\xE1 que,
+    por serem presas f\xE1ceis, servem como uma fonte de alimento para estes animais.
+    Os predadores das zebras incluem le\xF5es, hienas e crocodilos. Como um consumidor
+    prim\xE1rio, a zebra se alimenta exclusivamente de vegeta\xE7\xE3o."

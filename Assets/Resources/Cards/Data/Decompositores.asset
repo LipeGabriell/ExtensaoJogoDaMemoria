@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Decompositores
   m_EditorClassIdentifier: 
   cardSprite: {fileID: 21300000, guid: e2cbe222ca80d6741906c7b001642387, type: 3}
-  cardDescription: "Bact\xE9rias e fungos s\xE3o respons\xE1veis por um processo
-    conhecido por decomposi\xE7\xE3o, em que a mat\xE9ria org\xE2nica de seres vivos
-    \xE9 absorvida, e sais e outros elementos s\xE3o liberados. Esse processo \xE9
-    essencial para a manuten\xE7\xE3o da vida na Terra, pois garante a ciclagem de
-    nutrientes."
+  cardDescription: "As bact\xE9rias e fungos s\xE3o respons\xE1veis por um processo
+    vital conhecido como decomposi\xE7\xE3o. Nesse processo, a mat\xE9ria org\xE2nica
+    de seres vivos \xE9 degradada, e sais minerais, entre outros elementos, s\xE3o
+    liberados. Este processo \xE9 essencial para a manuten\xE7\xE3o da vida na Terra,
+    pois garante a constante ciclagem de nutrientes no meio ambiente."
