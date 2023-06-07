@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Carnivoros aguia
   m_EditorClassIdentifier: 
   cardSprite: {fileID: 21300000, guid: fa810bee86844ea4b8e9331d0ca04572, type: 3}
-  cardDescription: "A \xC1guia assim como o le\xE3o \xE9 um consumidor terci\xE1rio,
-    exercendo um papel fundamental dentro do ecossistema que est\xE1 inserido. Esse
-    animal controla a popula\xE7\xE3o de suas presas, consumindo pequenos animais
-    como os peixes e ajudam a manter est\xE1vel o equil\xEDbrio das teias tr\xF3ficas."
+  cardDescription: "A \xE1guia, assim como o le\xE3o, \xE9 um consumidor terci\xE1rio
+    e desempenha um papel fundamental no ecossistema em que vive. Este animal controla
+    a popula\xE7\xE3o de suas presas, que incluem pequenos animais como peixes, contribuindo
+    para a manuten\xE7\xE3o do equil\xEDbrio nas cadeias alimentares."

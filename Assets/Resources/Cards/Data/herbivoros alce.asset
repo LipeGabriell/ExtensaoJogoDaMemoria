@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abae8db499703d54b81a26b86126ff6d, type: 3}
   m_Name: herbivoros alce
   m_EditorClassIdentifier: 
-  cardSprite: {fileID: 21300000, guid: e449e784d2af3864d9a3e1b494746475, type: 3}
-  cardDescription: "O Alce \xE9 um animal herb\xEDvoro da classe dos mam\xEDferos.
-    Sua fun\xE7\xE3o \xE9 manter o equil\xEDbrio no reino animal, sendo muito importante
-    para o reino dos Carn\xEDvoros, pois o Alce \xE9 uma grande fonte de alimenta\xE7\xE3o
-    para estes tipos de animais. Seus predadores s\xE3o os lobos, ursos e puma. Os
-    Alces s\xE3o consumidores prim\xE1rios."
+  cardSprite: {fileID: 21300000, guid: 1ff0f83e9f87bc9449ad0b4205da745e, type: 3}
+  cardDescription: "O alce \xE9 um herb\xEDvoro pertencente \xE0 classe dos mam\xEDferos.
+    Ele desempenha um papel crucial na manuten\xE7\xE3o do equil\xEDbrio no reino
+    animal, sendo de grande import\xE2ncia para os carn\xEDvoros, uma vez que serve
+    como uma significativa fonte de alimento para esses animais. Entre seus predadores,
+    encontram-se lobos, ursos e pumas. Assim, os alces s\xE3o classificados como
+    consumidores prim\xE1rios."

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Onivoros peixe
   m_EditorClassIdentifier: 
   cardSprite: {fileID: 21300000, guid: 9b207a02ee11d644e9c493c26c54ed0d, type: 3}
-  cardDescription: "Os peixes on\xEDvoros s\xE3o os consumidores prim\xE1rios ou
-    secund\xE1rios e que consomem plantas e transformam diretamente em prote\xEDna
-    animal, ou se alimentando de outros peixes pequenos, fazendo assim o controle
-    do ecossistema e tendo uma importante participa\xE7\xE3o na cadeia alimentar."
+  cardDescription: "Os peixes on\xEDvoros podem ser consumidores prim\xE1rios ou
+    secund\xE1rios na cadeia alimentar. Eles consomem tanto plantas, transformando-as
+    diretamente em prote\xEDna animal, quanto outros peixes menores. Ao fazer isso,
+    exercem controle sobre o ecossistema e desempenham um papel significativo na
+    cadeia alimentar."

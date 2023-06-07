@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Carnivoros leao
   m_EditorClassIdentifier: 
   cardSprite: {fileID: 21300000, guid: f88d49f73fab34f469e0f694305c8919, type: 3}
-  cardDescription: "O Le\xE3o \xE9 um predador do topo da cadeia alimentar, que desempenha
-    um importante papel no ecossistema em que vive. Tem como fun\xE7\xE3o manter
-    o controle biol\xF3gico de seu habitat.Os le\xF5es apresentam uma alimenta\xE7\xE3o
-    variadacomo roedores e animais de grande porte, como a zebra. Sendo um consumidor
-    terci\xE1rio. "
+  cardDescription: "O le\xE3o, um predador no topo da cadeia alimentar, desempenha
+    um papel crucial no ecossistema onde vive, exercendo um controle biol\xF3gico
+    efetivo sobre seu habitat. A alimenta\xE7\xE3o dos le\xF5es \xE9 variada, englobando
+    desde roedores a animais de grande porte como zebras. Assim, eles s\xE3o classificados
+    como consumidores terci\xE1rios."
