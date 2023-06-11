@@ -19,6 +19,7 @@ public class GameplayController : MonoBehaviour
 
     private void Start()
     {
+        Shuffle(cardData);
         flippedCards = new List<CardController>();
         matchedCards = new List<CardController>();
         InitializeCards();
@@ -37,7 +38,6 @@ public class GameplayController : MonoBehaviour
         }
 
         Shuffle(availableIDs); // Embaralhar a lista de IDs
-
         for (int x = 0; x < gridSizeX; x++)
         {
             for (int y = 0; y < gridSizeY; y++)
@@ -67,6 +67,18 @@ public class GameplayController : MonoBehaviour
             list[n] = value;
         }
     }
+    public static void Shuffle<T>(T[] array)
+    {
+        int n = array.Length;
+        for (int i = 0; i < n - 1; i++)
+        {
+            int j = i + UnityEngine.Random.Range(0, n - i);
+            T temp = array[j];
+            array[j] = array[i];
+            array[i] = temp;
+        }
+    }
+
 
     // Método para virar uma carta
     public void FlipCard(CardController card)

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
+
 public class CardController : MonoBehaviour
 {
     public int id; // ID da carta
@@ -17,7 +18,7 @@ public class CardController : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if(!FindFirstObjectByType<ToastScript>()) controller.FlipCard(this);
+        if (!FindFirstObjectByType<ToastScript>()) controller.FlipCard(this);
     }
 
     // Método para virar a carta
@@ -41,7 +42,6 @@ public class CardController : MonoBehaviour
                 gameObject.transform.rotation = Quaternion.Euler(0, i, 0);
                 if (i == 90) spriteRenderer.sprite = controller.cardData[id].cardSprite;
                 yield return new WaitForSeconds(0.01f);
-
             }
         }
     }
