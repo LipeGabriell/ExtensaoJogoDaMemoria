@@ -9,7 +9,7 @@ public class CardController : MonoBehaviour
     public bool isMatched = false; // Indica se a carta foi combinada com outra
     private SpriteRenderer spriteRenderer;
     GameplayController controller;
-
+    
     private void Start()
     {
         controller = FindFirstObjectByType<GameplayController>();

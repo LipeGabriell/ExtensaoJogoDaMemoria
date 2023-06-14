@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -35,6 +36,7 @@ public class WinScript : MonoBehaviour
 
     private static IEnumerator LoadScene(AsyncOperation loading, int buildIndex)
     {
+        
         yield return new WaitUntil(() => loading.isDone);
         SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(buildIndex));
     }

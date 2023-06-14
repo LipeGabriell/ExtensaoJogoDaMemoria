@@ -2,14 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//TODO botar os crédios em um array (preguiça de fazer agr)
+//TODO melhorar interface
+//TODO melhorar os sons, tão ai só pra ter igual a interface (vlw ai design)
+//TODO refatoração do código
+
 public class GameplayController : MonoBehaviour
 {
-    [Header("Cartas")] public Sprite cardBack;
+    [Header("Cartas")] 
+    public Sprite cardBack;
     public CardData[] cardData; // Imagens das cartas
-    [Space] [Header("Tamanho")] public int gridSizeX; // Quantidade de colunas do grid
+    [Space] 
+    [Header("Tamanho")] 
+    public int gridSizeX; // Quantidade de colunas do grid
     public int gridSizeY; // Quantidade de linhas do grid
 
-    public GameObject cardPrefab; // Prefab da carta
+    [Space] 
+    [Header("Sons")] 
+    private AudioSource _audioSource;
+    [SerializeField] private AudioClip somClick;
+    [SerializeField] private AudioClip somUnmatch;
+    [SerializeField] private AudioClip somMatch;
+
+    [Space] 
+    [Header("Components")] 
+    [SerializeField] private GameObject cardPrefab; // Prefab da carta
     public GameObject Toast;
     public GameObject Win;
 
@@ -19,10 +36,16 @@ public class GameplayController : MonoBehaviour
 
     private void Start()
     {
+        Components();
         Shuffle(cardData);
         flippedCards = new List<CardController>();
         matchedCards = new List<CardController>();
         InitializeCards();
+    }
+
+    void Components()
+    {
+        _audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     // Método para inicializar as cartas
@@ -67,6 +90,7 @@ public class GameplayController : MonoBehaviour
             list[n] = value;
         }
     }
+
     public static void Shuffle<T>(T[] array)
     {
         int n = array.Length;
@@ -86,6 +110,7 @@ public class GameplayController : MonoBehaviour
         if (!card.isFlipped && flippedCards.Count < 2)
         {
             card.StartCoroutine(card.Flip());
+            SoundPlay(somClick);
             flippedCards.Add(card);
 
             if (flippedCards.Count == 2)
@@ -102,6 +127,7 @@ public class GameplayController : MonoBehaviour
         if (flippedCards[0].id == flippedCards[1].id)
         {
             // As cartas são um par
+            SoundPlay(somMatch);
             flippedCards[0].Match();
             flippedCards[1].Match();
             matchedCards.Add(flippedCards[0]);
@@ -115,6 +141,7 @@ public class GameplayController : MonoBehaviour
         else
         {
             // As cartas não são um par, então vire-as novamente
+            SoundPlay(somUnmatch);
             flippedCards[0].StartCoroutine((flippedCards[0].Flip()));
             flippedCards[1].StartCoroutine((flippedCards[1].Flip()));
         }
@@ -126,7 +153,14 @@ public class GameplayController : MonoBehaviour
     private IEnumerator WinCoroutine()
     {
         yield return new WaitForSeconds(.5f);
-        yield return new WaitUntil(() => !FindFirstObjectByType<ToastScript>() && !FindFirstObjectByType<CardController>());
+        yield return new WaitUntil(() =>
+            !FindFirstObjectByType<ToastScript>() && !FindFirstObjectByType<CardController>());
         Instantiate(Win);
+    }
+
+    public void SoundPlay(AudioClip audio)
+    {
+        _audioSource.clip = audio;
+        _audioSource.Play();
     }
 }
