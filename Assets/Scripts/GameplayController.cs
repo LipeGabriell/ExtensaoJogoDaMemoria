@@ -1,6 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 //TODO botar os crédios em um array (preguiça de fazer agr)
 //TODO melhorar interface
@@ -23,6 +27,8 @@ public class GameplayController : MonoBehaviour
     [SerializeField] private AudioClip somClick;
     [SerializeField] private AudioClip somUnmatch;
     [SerializeField] private AudioClip somMatch;
+    [SerializeField] private Slider _volumeSlider; 
+    [SerializeField] private AudioMixer _audioMixer;
 
     [Space] 
     [Header("Components")] 
@@ -33,7 +39,11 @@ public class GameplayController : MonoBehaviour
     private List<int> availableIDs; // Lista de IDs disponíveis para as cartas
     private List<CardController> flippedCards; // Lista das cartas viradas
     private List<CardController> matchedCards; // Lista das cartas combinadas
-
+    private Canvas _canvas;
+    [Space]
+    [Header("Configs")]
+    [SerializeField] private GameObject configs;
+    [NonSerialized] public bool configOpen = false;
     private void Start()
     {
         Components();
@@ -45,12 +55,16 @@ public class GameplayController : MonoBehaviour
 
     void Components()
     {
+        _canvas = gameObject.GetComponentInChildren<Canvas>();
+        _canvas.worldCamera = Camera.main;
         _audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     // Método para inicializar as cartas
     private void InitializeCards()
     {
+        Transform cardsTransform = GameObject.Find("Cards").transform;
+        Vector3 cardsPosition = cardsTransform.position;
         int totalPairs = (gridSizeX * gridSizeY) / 2;
         availableIDs = new List<int>();
 
@@ -66,9 +80,9 @@ public class GameplayController : MonoBehaviour
             for (int y = 0; y < gridSizeY; y++)
             {
                 int index = y * gridSizeX + x; // Índice baseado na posição do grid
-
+                
                 // Instanciar uma nova carta
-                GameObject cardObj = Instantiate(cardPrefab, new Vector3(x, y, 0), Quaternion.identity);
+                GameObject cardObj = Instantiate(cardPrefab, new Vector3(cardsPosition.x + x,cardsPosition.y + y, 0), Quaternion.identity,cardsTransform);
                 CardController card = cardObj.GetComponent<CardController>();
 
                 // Definir a imagem e o ID da carta
@@ -78,7 +92,7 @@ public class GameplayController : MonoBehaviour
     }
 
     // Método para embaralhar uma lista
-    private void Shuffle<T>(List<T> list)
+    private static void Shuffle<T>(List<T> list)
     {
         int n = list.Count;
         while (n > 1)
@@ -91,7 +105,7 @@ public class GameplayController : MonoBehaviour
         }
     }
 
-    public static void Shuffle<T>(T[] array)
+    private static void Shuffle<T>(T[] array)
     {
         int n = array.Length;
         for (int i = 0; i < n - 1; i++)
@@ -162,5 +176,17 @@ public class GameplayController : MonoBehaviour
     {
         _audioSource.clip = audio;
         _audioSource.Play();
+    }
+    
+    public void ChangeVolume()
+    {
+        _audioMixer.SetFloat("MasterVolume", _volumeSlider.value);
+    }
+    
+    public void MenuConfigs()
+    {
+        if (FindFirstObjectByType<WinScript>()) return;
+        configOpen = !configOpen;
+        configs.SetActive(!configs.activeSelf);
     }
 }

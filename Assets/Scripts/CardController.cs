@@ -18,7 +18,7 @@ public class CardController : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!FindFirstObjectByType<ToastScript>()) controller.FlipCard(this);
+        if ((!FindFirstObjectByType<ToastScript>()) && (!controller.configOpen)) controller.FlipCard(this);
     }
 
     // Método para virar a carta
